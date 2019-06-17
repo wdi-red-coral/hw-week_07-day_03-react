@@ -1,4 +1,4 @@
-# HW React Introduction
+# HW React
 
 As an introduction to React, we are going to use the Scrimba video tutorials.
 
