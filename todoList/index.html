@@ -9,26 +9,80 @@
 </head>
 <body>
     <div id="root">
+        
     </div>
     
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
-    
+
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        
+        function MyApp(){
+            return (
+                <div>
+                <Header />
+                <MainContent />
+                <Footer />
+                <App />
+                </div>
+            )
+        }
+
+        function Header() {
+            return (
+                <header>this is my header </header>
+            )
+
+        }
+
+        function MainContent() {
+            return (
+                <main>this is my main </main>
+            )
+
+        }
+
+        function Footer() {
+            return (
+                <footer>this is my footer </footer>
+            )
+
+        }
+
+        function App() {
+            return (
+                <div>
+                <input type= "checkbox" />
+                <p> place holder </p>
+
+                <input type= "checkbox" />
+                <p> place holder </p>
+
+                <input type= "checkbox" />
+                <p> place holder </p>
+                
+                </div>
+            )
+        }
+       
+
+       
         class Main extends React.Component {
             render() {
                 return (
-                    <h1>To Do List</h1>
+ 
+                         <h1>To Do List</h1>
+                          
                 );
+                
             }
         }
 
-        ReactDOM.render(<Main />, document.getElementById('root'));
+        ReactDOM.render(<div><Main /><MyApp /></div>, document.getElementById('root'));
     </script>
+     
 </body>
 </html>
