@@ -16,6 +16,7 @@
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
     
+    
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
@@ -27,8 +28,29 @@
                 );
             }
         }
+        
+     function App() {
+       return(
+           <div>
+            <input type="checkbox" />
+            <p>To do 1</p>
 
-        ReactDOM.render(<Main />, document.getElementById('root'));
+            <input type="checkbox" />
+            <p>To do 2</p>
+
+            <input type="checkbox" />
+            <p>To do 3</p>
+
+            <input type="checkbox" />
+            <p>To do 4</p>
+         </div>
+            )
+         }
+        ReactDOM.render(
+          <App/> , document.getElementById('root'));
+       
+    //     var new =document.createElement('p') 
+    // new.innerHTML = 'This is Huda'
     </script>
 </body>
 </html>
