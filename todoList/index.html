@@ -23,10 +23,52 @@
         class Main extends React.Component {
             render() {
                 return (
-                    <h1>To Do List</h1>
+                    <div>
+                        <Header />
+                        <Content />
+                        <Footer />
+                    </div>
                 );
             }
         }
+        
+        class Header extends React.Component {
+            render() {
+                return (
+                    <div>
+                    <h1>To Do List</h1>
+                    </div>
+                );
+            }
+        }
+        class Content extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <input type="checkbox" />
+                        <p>Placeholder text here</p>
+
+                        <input type="checkbox" />
+                        <p>Placeholder text here</p>
+
+                        <input type="checkbox" />
+                        <p>Placeholder text here</p>
+
+                        <input type="checkbox" />
+                        <p>Placeholder text here</p>
+                    </div>
+                );
+            }
+        }
+        class Footer extends React.Component {
+            render() {
+                return (
+                    <div>
+                    </div>
+                );
+            }
+        }
+
 
         ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
