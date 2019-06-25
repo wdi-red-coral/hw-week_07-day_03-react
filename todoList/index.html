@@ -21,13 +21,36 @@
         // DO NOT USE IMPORT OR EXPORT
         
         class Main extends React.Component {
-            render() {
+            render( ) {
                 return (
-                    <h1>To Do List</h1>
+                    <div>
+                       <nav>
+                            <h1>To Do List</h1>
+                       </nav>
+                       
+                       <main>
+                            <input type="checkbox" />
+                            <p>Placeholder text here</p>
+                            
+                            <input type="checkbox" />
+                            <p>Placeholder text here</p>
+                            
+                            <input type="checkbox" />
+                            <p>Placeholder text here</p>
+                            
+                            <input type="checkbox" />
+                            <p>Placeholder text here</p>
+                       </main>
+
+                       <footer>
+                        <p>Some Text goes here ..</p>
+                       </footer>
+                    </div>
                 );
             }
         }
 
+        //<Main /> => refers to function name
         ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
 </body>
