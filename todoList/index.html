@@ -24,12 +24,32 @@
             render() {
                 return (
                     <h1>To Do List</h1>
+                    
                 );
             }
         }
 
+        function App() {
+    return (
+        <div>
+            <input type="checkbox" />
+            <p>todo1</p>
+            
+            <input type="checkbox" />
+            <p>todo2</p>
+            
+            <input type="checkbox" />
+            <p>todo3</p>
+            
+            <input type="checkbox" />
+            <p>todo4</p>
+        </div>
+    )
+}
 
-        ReactDOM.render(<Main />, document.getElementById('root'));
+
+
+        ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>
 </html>
