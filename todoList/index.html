@@ -22,23 +22,54 @@
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
         
+        const App =() =>{
+            const todoItem = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+            return(
+                <div className="todo-list">
+                    {todoItem}
+                </div>
+            )}
+
+        const TodoItem = (props) =>(
+            <div className="todo-item">
+                <input type="checkbox" checked={props.item.completed}/>
+                <p>{props.item.text}</p>
+            </div>
+        )
+
+        const todosData = [
+            {
+                id: 1,
+                text: "Take out the trash",
+                completed: true
+            },
+            {
+                id: 2,
+                text: "Grocery shopping",
+                completed: false
+            },
+            {
+                id: 3,
+                text: "Clean gecko tank",
+                completed: false
+            },
+            {
+                id: 4,
+                text: "Mow lawn",
+                completed: true
+            },
+            {
+                id: 5,
+                text: "Catch up on Arrested Development",
+                completed: false
+            }
+        ]
+
+
         class Main extends React.Component {
             render() {
                 return (
-                    <div>
-                    <h1>To Do List</h1>
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                    
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                    
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                    
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                </div>
+                    <App />
                 );
             }
         }
