@@ -19,21 +19,33 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        
+        const styles = {
+     
+    
+        }
+        function ToDoItem() {
+            return(
+                <div className="to-do-item">
+                    <label className="container">to do item
+                        <input type="checkbox" />
+                        <span className="checkmark"></span>
+                    </label>
+                </div>
+            )
+        }
         class Main extends React.Component {
             render() {
                 return (
                     <div>
-                        <h1>To Do List</h1>  
-                        <input type="checkbox" />To do item 1
-                        <br />
-                        <input type="checkbox" />To do item 2
-                        <br />
-                        <input type="checkbox" />To do item 3
-                        <br />
-                        <input type="checkbox" />To do item 4
-                        <br />
+                    <h1>To Do List</h1>
+                    <div className="to-do-list">  
+                        <ToDoItem />
+                        <ToDoItem />
+                        <ToDoItem />
+                        <ToDoItem />
                     </div>
+                    </div>
+
                 );
             }
         }
