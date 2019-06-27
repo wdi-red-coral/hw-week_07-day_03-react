@@ -14,20 +14,43 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
-    
-        // WRITE ALL YOUR REACT CODE HERE
-        // DO NOT USE OTHER JAVASCRIPT FILES
-        // DO NOT USE IMPORT OR EXPORT
-        
-        class Main extends React.Component {
-            render() {
-                return (
-                    <h1>To Do List</h1>
-                );
-            }
+     function Header() {
+        return (
+        <header className="navbar">This is the header</header>
+      )
         }
+         
 
-        ReactDOM.render(<Main />, document.getElementById('root'));
+            function App() {
+                return (
+                    <div>
+        <div className="todo-list">
+            <div className = "todo-item">
+                <input type="checkbox" />
+                <p>task 1</p>
+            </div>
+            
+            <div className = "todo-item">
+                <input type="checkbox" />
+                <p>task 2</p>
+            
+            </div>
+            <div className = "todo-item">
+                <input type="checkbox" />
+                <p>task 3</p>
+            
+            </div>
+            <div className = "todo-item">  
+                <input type="checkbox" />
+                <p>task 4</p>
+            </div>
+        </div>
+                )
+            }
+        
+
+        
+        ReactDOM.render(<App/>, document.getElementById('root'));
     </script>
 </body>
 </html>
