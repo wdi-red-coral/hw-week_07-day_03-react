@@ -15,7 +15,34 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
-    
+         
+         const todosData =[
+    {
+        id: 1,
+        text: "Take out the trash",
+        completed: true
+    },
+    {
+        id: 2,
+        text: "Grocery shopping",
+        completed: false
+    },
+    {
+        id: 3,
+        text: "Clean gecko tank",
+        completed: false
+    },
+    {
+        id: 4,
+        text: "Mow lawn",
+        completed: true
+    },
+    {
+        id: 5,
+        text: "Catch up on Arrested Development",
+        completed: false
+    }
+] 
     
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
@@ -29,28 +56,27 @@
             }
         }
         
-     function App() {
+     function App(props) { 
+         const todoItems = todosData.map(item => <App key ={item.id}={item}/>)
        return(
-           <div>
+           <div className = 'box'>
             <input type="checkbox" />
-            <p>To do 1</p>
+            <p>{props.item.text}</p>
 
             <input type="checkbox" />
-            <p>To do 2</p>
+            <p>{props.item.text}</p>
 
             <input type="checkbox" />
-            <p>To do 3</p>
+            <p>{props.item.text}</p>
 
             <input type="checkbox" />
-            <p>To do 4</p>
+            <p>{props.item.text}</p>
          </div>
             )
          }
         ReactDOM.render(
           <App/> , document.getElementById('root'));
        
-    //     var new =document.createElement('p') 
-    // new.innerHTML = 'This is Huda'
     </script>
 </body>
 </html>
