@@ -22,17 +22,47 @@
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
         
-        const App =() =>{
-            const todoItem = todosData.map(item => <TodoItem key={item.id} item={item}/>)
-            return(
-                <div className="todo-list">
-                    {todoItem}
-                </div>
-            )}
+        class App extends React.Component {
+            constructor(){
+                super()
+                this.state = {
+                    todos: todosData
+                }
+                this.handleChange = this.handleChange.bind(this)
+            }
+
+            handleChange(id){
+                this.setState(prevState => {
+                    const updatedTodos = prevState.todos.map(todo => {
+                        if (todo.id === id) {
+                            todo.completed = !todo.completed
+                        }
+                        return todo
+                    })
+                    return {
+                        todos: updatedTodos
+                    }
+                })
+            }
+            render(){
+
+            
+                const todoItem = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+                return(
+                    <div className="todo-list">
+                        {todoItem}
+                    </div>
+                )
+            }
+        }
+            
 
         const TodoItem = (props) =>(
             <div className="todo-item">
-                <input type="checkbox" checked={props.item.completed}/>
+                <input 
+                    type="checkbox" 
+                    checked={props.item.completed} 
+                    onChange={() => props.handleChange(props.item.id)}/>
                 <p>{props.item.text}</p>
             </div>
         )
