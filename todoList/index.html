@@ -17,52 +17,57 @@
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
 
+const todosData = [
+    {
+        id: 1,
+        text: "Take out the trash",
+        completed: true
+    },
+    {
+        id: 2,
+        text: "Grocery shopping",
+        completed: false
+    },
+    {
+        id: 3,
+        text: "Clean gecko tank",
+        completed: false
+    },
+    {
+        id: 4,
+        text: "Mow lawn",
+        completed: true
+    },
+    {
+        id: 5,
+        text: "Catch up on Arrested Development",
+        completed: false
+    }
+]
+
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
         function MyApp(){
+            const todoItems = todosData.map(item => <App key={item.id} item={item}/>)
             return (
-                <div>
-                <Header />
-                <MainContent />
-                <Footer />
-                <App />
+                <div className="todo-list">
+                    <h1>To Do List</h1>
+                    {todoItems}
                 </div>
             )
         }
 
-        function Header() {
+      
+
+        function App(props) {
+          
             return (
-                <header>this is my header </header>
-            )
+                <div className="todo-item">
+                    <input type= "checkbox" />
+                    <p> {props.item.text} </p>
 
-        }
-
-        function MainContent() {
-            return (
-                <main>this is my main </main>
-            )
-
-        }
-
-        function Footer() {
-            return (
-                <footer>this is my footer </footer>
-            )
-
-        }
-
-        function App() {
-            return (
-                <div>
-                <input type= "checkbox" />
-                <p> place holder </p>
-
-                <input type= "checkbox" />
-                <p> place holder </p>
-
-                <input type= "checkbox" />
-                <p> place holder </p>
+                    
                 
                 </div>
             )
@@ -73,15 +78,13 @@
         class Main extends React.Component {
             render() {
                 return (
- 
-                         <h1>To Do List</h1>
-                          
+                    <MyApp />  
                 );
                 
             }
         }
 
-        ReactDOM.render(<div><Main /><MyApp /></div>, document.getElementById('root'));
+        ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
      
 </body>
