@@ -18,49 +18,70 @@
 function TodoItem(props) {
     return (
         <div className="todo-item">
-            <input type="checkbox" checked={props.item.completed}/>
+            <input 
+                type="checkbox" 
+                checked={props.item.completed} 
+                onChange={() => console.log("Changed!")}
+            />
             <p>{props.item.text}</p>
         </div>
     )
 }
 
-function App() {
-    const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
     
-    return (
-        <div className="todo-list">
-            {todoItems}
-        </div>
-    )
+    handleChange(id) {
+        // Update state so that the item with the given id flips `completed` from false to true (or vise versa)
+        // Remember not to modify prevState directly, but instead to return a new version of state with the change you want included in that update. (Think how you might use the `.map` method to do this)
+    }
+    
+    render() {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+        
+        return (
+            <div className="todo-list">
+                {todoItems}
+            </div>
+        )    
+    }
 }
 
 const todosData = [
-    {
-        id: 1,
-        text: "Take out the trash",
-        completed: true
-    },
-    {
-        id: 2,
-        text: "Grocery shopping",
-        completed: false
-    },
-    {
-        id: 3,
-        text: "Clean gecko tank",
-        completed: false
-    },
-    {
-        id: 4,
-        text: "Mow lawn",
-        completed: true
-    },
-    {
-        id: 5,
-        text: "Catch up on Arrested Development",
-        completed: true
-    }
+{
+    id: 1,
+    text: "Take out the trash",
+    completed: true
+},
+{
+    id: 2,
+    text: "Grocery shopping",
+    completed: false
+},
+{
+    id: 3,
+    text: "Clean gecko tank",
+    completed: false
+},
+{
+    id: 4,
+    text: "Mow lawn",
+    completed: true
+},
+{
+    id: 5,
+    text: "Catch up on Arrested Development",
+    completed: false
+}
 ]
+
 
 
         // class Main extends React.Component {
