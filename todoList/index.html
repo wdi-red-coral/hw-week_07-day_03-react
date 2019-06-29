@@ -22,30 +22,25 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
+function TodoItem() {
+    return (
+        <div>
+            <input type = "checkbox"/>
+            <p>Here goes text</p>
+        </div>
 
-        class Main extends React.Component {
-            render() {
-                return (
-                    <h1>To Do List</h1>
-                );
-            }
-        }
+    )
+}
 
 function App() {
     return(
         <div>
-            <input type = "checkbox"/>
-            <p>#1</p>
-
-            <input type = "checkbox"/>
-            <p>#2</p>
-
-            <input type = "checkbox"/>
-            <p>#3</p>
-
-            <input type = "checkbox"/>
-            <p>#4</p>
-        </div>) 
+            <TodoItem />
+            <TodoItem />
+            <TodoItem />
+            <TodoItem />
+        </div>
+    )
 }
 
 
