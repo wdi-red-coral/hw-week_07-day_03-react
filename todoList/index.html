@@ -15,25 +15,76 @@
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
     
-         class Main extends React.Component {
-            render() {
+
+    function TodoItem(props) {
+   return (
+       <div className='todo-item'>
+           <input type='checkbox' checked={props.item.completed}/>
+           <p>{props.item.text}</p>
+       </div>
+   )
+   }
+       const todosData = [
+           {
+               id: 1,
+               text: “Take out the trash”,
+               completed: true
+           },
+           {
+               id: 2,
+               text: “Grocery shopping”,
+               completed: false
+           },
+           {
+               id: 3,
+               text: “Clean gecko tank”,
+               completed: false
+           },
+           {
+               id: 4,
+               text: “Mow lawn”,
+               completed: true
+           },
+           {
+               id: 5,
+               text: “Catch up on Arrested Development”,
+               completed: false
+           }
+       ]
+       class Main extends React.Component {
+           render() {
+               const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+
                 return (
-                return ( 
-                    <div>
-                    <h1>To Do List</h1>
-                );
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                    <input type="checkbox" />
-                   <p>Placeholder text here</p>
-                    <input type="checkbox" />
-                   <p>Placeholder text here</p>
-                    <input type="checkbox" />
-                    <p>Placeholder text here</p>
-                </div>
-                ); 
-            }
-        }
+               <div className='todo-list'>
+               {todoItems}
+                     </div>
+            )
+           }
+               }
+
+
+
+
+        //  class Main extends React.Component {
+        //     render() {
+        //         return (
+        //         return ( 
+        //             <div>
+        //             <h1>To Do List</h1>
+        //         );
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+        //             <input type="checkbox" />
+        //            <p>Placeholder text here</p>
+        //             <input type="checkbox" />
+        //            <p>Placeholder text here</p>
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+        //         </div>
+        //         ); 
+        //     }
+        // }
          ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
 </body>
