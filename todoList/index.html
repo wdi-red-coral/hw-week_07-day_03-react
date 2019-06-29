@@ -48,8 +48,31 @@ const todosData = [
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        function MyApp(){
-            const todoItems = todosData.map(item => <App key={item.id} item={item}/>)
+        class MyApp extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(id) {
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
+    }
+    render() {
+            const todoItems = this.state.todos.map(item => <App key={item.id} item={item}
+            handleChange={this.handleChange}/>)
             return (
                 <div className="todo-list">
                     <h1>To Do List</h1>
@@ -57,14 +80,15 @@ const todosData = [
                 </div>
             )
         }
-
+        }
       
 
         function App(props) {
           
             return (
                 <div className="todo-item">
-                    <input type= "checkbox" />
+                    <input type= "checkbox" checked={props.item.completed} 
+                    onChange={() => props.handleChange(props.item.id)} />
                     <p> {props.item.text} </p>
 
                     
@@ -76,6 +100,13 @@ const todosData = [
 
        
         class Main extends React.Component {
+
+            constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+    }
             render() {
                 return (
                     <MyApp />  
