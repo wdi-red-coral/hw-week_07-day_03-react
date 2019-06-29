@@ -22,26 +22,56 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-function TodoItem() {
-    return (
-        <div className="todo-item">
-            <input type = "checkbox"/>
-            <p>Here goes text</p>
-        </div>
+        const todosData = [
+            {
+                id: 1,
+                text: "Take out the trash",
+                completed: true
+            },
+            {
+                id: 2,
+                text: "Grocery shopping",
+                completed: false
+            },
+            {
+                id: 3,
+                text: "Clean gecko tank",
+                completed: false
+            },
+            {
+                id: 4,
+                text: "Mow lawn",
+                completed: true
+            },
+            {
+                id: 5,
+                text: "Catch up on Arrested Development",
+                completed: false
+            }
+        ];
 
-    )
-}
+        function TodoItem(props) {
+            return (
+                <div className="todo-item">
+                    <input type="checkbox" checked={props.completed}/>
+                    <p>{props.text}</p>
+                    <p>{props.completed}</p>
+                </div>
+            )
+        }
 
-function App() {
-    return(
-        <div className="todo-list">
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-        </div>
-    )
-}
+        function App() {
+            const todoComponents =
+                todosData.map(item => (<TodoItem
+                    key={item.id}
+                    text={item.text}
+                    completed={item.completed} />));
+            return (
+                <div className="todo-list">
+                    {todoComponents}
+                </div>
+            )
+        }
 
 
 
