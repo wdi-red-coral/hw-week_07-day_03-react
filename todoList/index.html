@@ -20,35 +20,56 @@
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
         
-        class Main extends React.Component {
-            render() {
-                return (
-                    import React from "react"
-
-function App() {
+        function TodoItem(props) {
     return (
-        <div>
-            <input type="checkbox" />
-            <p>Placeholder text here</p>
-            
-            <input type="checkbox" />
-            <p>Placeholder text here</p>
-            
-            <input type="checkbox" />
-            <p>Placeholder text here</p>
-            
-            <input type="checkbox" />
-            <p>Placeholder text here</p>
+        <div className="todo-item">
+            <input type="checkbox" checked={props.item.completed}/>
+            <p>{props.item.text}</p>
         </div>
     )
-}
-
-export default App
-                );
+    }
+        const todosData = [
+            {
+                id: 1,
+                text: "Take out the trash",
+                completed: true
+            },
+            {
+                id: 2,
+                text: "Grocery shopping",
+                completed: false
+            },
+            {
+                id: 3,
+                text: "Clean gecko tank",
+                completed: false
+            },
+            {
+                id: 4,
+                text: "Mow lawn",
+                completed: true
+            },
+            {
+                id: 5,
+                text: "Catch up on Arrested Development",
+                completed: false
             }
-        }
+        ]
+
+        class Main extends React.Component {
+            render() {
+                const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+    
+                 return (
+                <div className="todo-list">
+                {todoItems}
+                      </div>
+             )
+            }
+                }
 
         ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
+    
 </body>
 </html>
