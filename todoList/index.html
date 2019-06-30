@@ -14,43 +14,77 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
-     function Header() {
-        return (
-        <header className="navbar">This is the header</header>
-      )
-        }
-         
+    
 
-            function App() {
-                return (
-                    <div>
-        <div className="todo-list">
-            <div className = "todo-item">
-                <input type="checkbox" />
-                <p>task 1</p>
-            </div>
-            
-            <div className = "todo-item">
-                <input type="checkbox" />
-                <p>task 2</p>
-            
-            </div>
-            <div className = "todo-item">
-                <input type="checkbox" />
-                <p>task 3</p>
-            
-            </div>
-            <div className = "todo-item">  
-                <input type="checkbox" />
-                <p>task 4</p>
-            </div>
+        function TodoItem(props) {
+    return (
+        <div className="todo-item">
+            <input type="checkbox" checked={props.item.completed}/>
+            <p>{props.item.text}</p>
         </div>
-                )
+    )
+    }
+    class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(id) {
+    }
+    
+    render() {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+        
+        return (
+            <div className="todo-list">
+                {todoItems}
+            </div>
+        )    
+    }
+}
+        const todosData = [
+            {
+                id: 1,
+                text: "Take out the trash",
+                completed: true
+            },
+            {
+                id: 2,
+                text: "Grocery shopping",
+                completed: false
+            },
+            {
+                id: 3,
+                text: "Clean gecko tank",
+                completed: false
+            },
+            {
+                id: 4,
+                text: "Mow lawn",
+                completed: true
+            },
+            {
+                id: 5,
+                text: "Catch up on Arrested Development",
+                completed: false
             }
-        
-
-        
-        ReactDOM.render(<App/>, document.getElementById('root'));
+        ]
+        class Main extends React.Component {
+            render() {
+                const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+    
+                 return (
+                <div className="todo-list">
+                {todoItems}
+                      </div>
+             )
+            }
+                }
+        ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
 </body>
 </html>
