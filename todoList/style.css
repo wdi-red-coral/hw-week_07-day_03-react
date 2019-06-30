@@ -1,7 +1,7 @@
 .todo-list {
     background-color: white;
-    margin: auto; width: 50%;
-    display: flex; padding: 30px;
+    margin: auto;display: flex;
+    width: 50%;padding: 30px;
     flex-direction: column;
     align-items: center;
     border: 1px solid #efefef;
@@ -17,7 +17,7 @@
             /* The third layer shadow */
         0 20px 1px -9px rgba(0,0,0,0.15);}
 
-.todo-item { display: flex;
+.todo-item {display: flex;
     justify-content: flex-start;
     align-items: center;color: #333333;
     padding: 30px 20px 0;width: 70%;
