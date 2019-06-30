@@ -53,24 +53,30 @@
         function TodoItem(props) {
             return (
                 <div className="todo-item">
-                    <input type="checkbox" checked={props.completed}/>
-                    <p>{props.text}</p>
-                    <p>{props.completed}</p>
+                    <input type="checkbox" checked={props.item.completed}/>
+                    <p>{props.item.text}</p>
+                    <p>{props.item.completed}</p>
                 </div>
             )
         }
 
-        function App() {
-            const todoComponents =
-                todosData.map(item => (<TodoItem
-                    key={item.id}
-                    text={item.text}
-                    completed={item.completed} />));
-            return (
-                <div className="todo-list">
-                    {todoComponents}
-                </div>
-            )
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    todos: todosData
+                }
+            }
+
+            render() {
+                const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>);
+
+                return (
+                    <div className="todo-list">
+                        {todoItems}
+                    </div>
+                )
+            }
         }
 
 
