@@ -1,5 +1,5 @@
 body {
-    background-color: whitesmoke;
+    background-color: pink;
 }
 
 .todo-list {
@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #efefef;
+    border: 1px solid #2B0505;
     box-shadow:
     /* The top layer shadow */
         0 1px 1px rgba(0,0,0,0.15),
@@ -34,7 +34,7 @@ body {
     font-family: Roboto, sans-serif;
     font-weight: 100;
     font-size: 15px;
-    color: #333333;
+    color: #802C2C;
 }
 
 input[type=checkbox] {
