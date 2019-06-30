@@ -21,12 +21,8 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        
-        class Main extends React.Component {
 
-            render() {
-
-           const todosData = [
+        const todosData = [
     {
         id: 1,
         text: "Take out the trash",
@@ -53,7 +49,34 @@
         completed: false
     }
 ]
-const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+        
+        class Main extends React.Component {
+            constructor() {
+        super()
+        this.state = {
+            todos: todosData
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange(id) {
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
+    }
+
+            render() {
+
+   
+const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} 
+handleChange={this.handleChange}/>)
 
                 return (
                     <div className="todo-list">
@@ -67,7 +90,11 @@ const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
         function TodoItem(props) {
     return (
         <div className="todo-item">
-            <input type="checkbox" checked={props.item.completed} />
+            <input 
+                type="checkbox" 
+                checked={props.item.completed} 
+                onChange={() => props.handleChange(props.item.id)}
+            />
             <p>{props.item.text}</p>
         </div>
     )
