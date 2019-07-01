@@ -18,119 +18,64 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
+
+
+const todosData = [
+    {
+        id: 1,
+        text: "Take out the trash",
+        completed: true
+    },
+    {
+        id: 2,
+        text: "Grocery shopping",
+        completed: false
+    },
+    {
+        id: 3,
+        text: "Clean gecko tank",
+        completed: false
+    },
+    {
+        id: 4,
+        text: "Mow lawn",
+        completed: true
+    },
+    {
+        id: 5,
+        text: "Catch up on Arrested Development",
+        completed: false
+    }
+]
+
+
+
+
+        function App() {
+            const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+            return(
+                <div className="todo-list">
+               {todoItems}
+                 </div>
+            ) 
+        }      
+
+        function TodoItem (props){
+            return(
+                <div>
+                <input type = "checkbox" checked={props.item.completed}/>
+                <p>{props.item.text}</p>
+                </div>
+            )
+        } 
+
+
+
+
+             
+         ReactDOM.render(<App />, document.getElementById("root"))
     
-        // WRITE ALL YOUR REACT CODE HERE
-        // DO NOT USE OTHER JAVASCRIPT FILES
-        // DO NOT USE IMPORT OR EXPORT
-        
-     
 
-            function App3 (){
-                return (
-                    <div>
-                    <input type ="checkbox" />
-                    <p>Placeholder1</p>
-
-                    <input type ="checkbox" />
-                    <p>Placeholder2</p>
-
-                    <input type ="checkbox" />
-                    <p>Placeholder3</p>
-
-                    <input type ="checkbox" />
-                    <p>Placeholder4</p>
-
-                    </div>
-                    
-                )
-            }
-
-
-
-            ReactDOM.render(<App3 />,document.getElementById("root"))
-    
-
-
-
-
-            // v10
-            // function App (){
-            //     return (
-
-            //         <div>
-            //         <Header />
-            //         <MainContent />
-            //         <Footer />
-            //         </div>
-            //     )
-            // }
-
-            // function Header (){
-            //     return (<header> This is My Header</header>
-
-            //     )
-            // }
-
-
-            // function MainContent (){
-            //     return (
-
-            //         <div>
-            //         <p>hello omar how are you and how is evry thing</p>
-            //         <p>hello omar how are you and how is evry thing</p>
-            //         <p>hello omar how are you and how is evry thing</p>
-            //         </div>
-            //     )
-            // }
-
-            // function Footer (){
-            //     return (
-            //         <div>
-            //         <p>copyrigth</p>
-            //         </div>
-            //     )
-            // }
-
-
-
-            // ReactDOM.render(<App />, document.getElementById("root"))
-
-
-
-
-//     return (
-//         <div>
-        
-//         <h1>omar</h1>
-//         <p>yosif</p>
-//         <ul>
-//             <li>tarawri</li>
-//             <li>Mali</li>
-//             <li>africa</li>
-//         </ul>
-//         <li>tarawri</li>
-
-//         <Footer />
-        
-        
-//         </div>)
-    
-// }
-
-// function Footer (){
-//     return (<div>
-//         <Header />
-//         <p>copyrugth</p>
-
-//         </div>
-//     )
-// }
-
-// function Header (){
-//     return (
-//         <p>List</p>
-//     )
-// }
 
     </script>
 </body>
