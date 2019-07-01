@@ -19,12 +19,64 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        
+
+        const todosData = [
+            { id: 1, text: "Take out the trash", completed: true },
+            { id: 2, text: "Grocery shopping", completed: false },
+            { id: 3, text: "Clean gecko tank", completed: false },
+            { id: 4, text: "Mow lawn", completed: true },
+            { id: 5, text: "Catch up on Arrested Development", completed: false }
+        ]
+        function ToDoItem(props) {
+                const completedStyle = {
+                        fontStyle: "italic",
+                        color: "#cdcdcd",
+                        textDecoration: "line-through"
+                    }
+            return(
+                <div className="to-do-item">
+                    <label className="container" style={props.item.completed ? completedStyle: null}>{props.item.text}
+                        <input type="checkbox" checked={props.item.completed} 
+                onChange={() => props.handleChange(props.item.id)} />
+                        <span className="checkmark"></span>
+                    </label>
+                </div>
+            )
+        }
+
         class Main extends React.Component {
+            constructor(){
+                super()
+                this.state = {
+                    todos: todosData
+                }
+                this.handleChange = this.handleChange.bind(this)
+            }
+            handleChange(id) {
+                this.setState(prevState => {
+                const updatedTodos = prevState.todos.map(todo => {
+                    if (todo.id === id) {
+                    todo.completed = !todo.completed
+                    }
+                    return todo
+                })
+                return {
+                todos: updatedTodos
+                }
+                })
+            }
+            
             render() {
+                const todoComponenet = this.state.todos.map(item => <ToDoItem key={item.id} item={item} handleChange={this.handleChange}/>)
                 return (
-                    <h1>To Do List</h1>
-                );
+                    <div>
+                        <h1>To Do List</h1>
+                        <div className="to-do-list">  
+                            {todoComponenet}
+                        </div>
+                    </div>
+
+                )
             }
         }
 
