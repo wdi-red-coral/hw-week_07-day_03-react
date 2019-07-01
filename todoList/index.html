@@ -62,7 +62,7 @@ class Main extends React.Component {
                     
                 );
             }
-        }
+        }.
 
     class App extends React.Component{
         constucter(){
@@ -109,6 +109,29 @@ class Main extends React.Component {
         )
     }
      export default TodoItem
+
+
+     function TodoItem(props){
+         const completedStyle = {
+             frontStyle: "italic",
+             color: "#cdcdcd",
+             textDecoration: "lin-through"
+
+         }
+
+         return(
+             <div className= "todo-item">
+             <input 
+             type="checkbox"
+             checked={props.item.completed}
+             onChange={()=> props.handlechange(props.item.id)}/>
+             <p>style={props.item.completed ? completedStyle: null}>{props.item.text}</p>
+             </div>
+         )
+     }
+
+     export default TodoItem
+     
 
         ReactDOM.render(<Main />, document.getElementById('root'));
     </script>
