@@ -19,7 +19,9 @@
         // WRITE ALL YOUR REACT CODE HERE
         // DO NOT USE OTHER JAVASCRIPT FILES
         // DO NOT USE IMPORT OR EXPORT
-        // ----p1----
+
+        
+    ----p1----
         //  class App extends React.Component  {
         //     render() {
         //         return (
@@ -53,7 +55,7 @@
         //     }
         // }
 
-        // ----p2----
+----p2----
 
         // class TodoItem extends React.Component {
         //     render() {
@@ -76,7 +78,7 @@
         //         </div>
         //     ); }
         // }
-        // ---p3---
+    ---p3---
         const todosData = [
             {
                 id: 1,
@@ -125,7 +127,7 @@
         //         );
         // }
 
-    //  ---p4---
+     ---p4---
     //     class App extends React.Component {
     //     constructor() {
     //         super()
@@ -155,6 +157,85 @@
     //             );
     //     }
     ---p5---
+
+    //     class TodoItem extends React.Component (props) {
+    //     return (
+    //         <div className="todo-item">
+    //             <input 
+    //                 type="checkbox" 
+    //                 checked={props.item.completed} 
+    //                 onChange={() => console.log("Changed!")}
+    //             />
+    //             <p>{props.item.text}</p>
+    //         </div>
+    //     )
+    // }
+    ----p6---
+//         class TodoItem extends React.Component(props) {
+//             return (
+//                 <div className="todo-item">
+//                     <input 
+//                         type="checkbox" 
+//                         checked={props.item.completed} 
+//                         onChange={() => props.handleChange(props.item.id)}
+//                     />
+//                     <p>{props.item.text}</p>
+//                 </div>
+//             )
+//         }
+//         class App extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             todos: todosData
+//         }
+//         this.handleChange = this.handleChange.bind(this)
+//     }
+    
+//     handleChange(id) {
+//         this.setState(prevState => {
+//             const updatedTodos = prevState.todos.map(todo => {
+//                 if (todo.id === id) {
+//                     todo.completed = !todo.completed
+//                 }
+//                 return todo
+//             })
+//             return {
+//                 todos: updatedTodos
+//             }
+//         })
+//     }
+    
+//     render() {
+//         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+        
+//         return (
+//             <div className="todo-list">
+//                 {todoItems}
+//             </div>
+//         )    
+//     }
+// }
+
+---p7---
+// class TodoItem extends React.Component(props) {
+//     const completedStyle = {
+//         fontStyle: "italic",
+//         color: "#cdcdcd",
+//         textDecoration: "line-through"
+//     }
+    
+//     return (
+//         <div className="todo-item">
+//             <input 
+//                 type="checkbox" 
+//                 checked={props.item.completed} 
+//                 onChange={() => props.handleChange(props.item.id)}
+//             />
+//             <p style={props.item.completed ? completedStyle: null}>{props.item.text}</p>
+//         </div>
+//     )
+// }
 
 
         ReactDOM.render(<Main />, document.getElementById('root'));
