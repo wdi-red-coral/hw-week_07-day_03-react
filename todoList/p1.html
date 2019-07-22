@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+    </div>
+    
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+    
+        // WRITE ALL YOUR REACT CODE HERE
+        // DO NOT USE OTHER JAVASCRIPT FILES
+        // DO NOT USE IMPORT OR EXPORT
+
+        
+    ----p1----
+        //  class App extends React.Component  {
+        //     render() {
+        //         return (
+        //             < div className="todo-item"><h1>To Do List</h1>
+                    
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+                    
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+                    
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+                    
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+        //         </div> 
+               
+        //         );
+        //     }
+            
+        // }
+        
+        // class Main extends React.Component {
+            
+        //     render() {
+        //         return (
+        //             <App/>
+               
+        //         );
+        //     }
+        // }
+
+----p2----
+
+        // class TodoItem extends React.Component {
+        //     render() {
+        //     return (
+        //         <div>
+        //             <input type="checkbox" />
+        //             <p>Placeholder text here</p>
+        //         </div>
+        //     ); }
+        // }
+
+        // class Main extends React.Component {
+        //     render() {
+        //     return (
+        //         <div>
+        //             <TodoItem />
+        //             <TodoItem />
+        //             <TodoItem />
+        //             <TodoItem />
+        //         </div>
+        //     ); }
+        // }
+    ---p3---
+        const todosData = [
+            {
+                id: 1,
+                text: "Take out the trash",
+                completed: true
+            },
+            {
+                id: 2,
+                text: "Grocery shopping",
+                completed: false
+            },
+            {
+                id: 3,
+                text: "Clean gecko tank",
+                completed: false
+            },
+            {
+                id: 4,
+                text: "Mow lawn",
+                completed: true
+            },
+            {
+                id: 5,
+                text: "Catch up on Arrested Development",
+                completed: false
+            }
+        ]
+ 
+        // class TodoItem extends React.Component (props) {
+        // render() 
+        //     return (
+        //         <div className="todo-item">
+        //             <input type="checkbox" checked={props.item.completed} />
+        //             <p>{props.item.text}</p>
+        //         </div>
+        //     );
+        // }
+        // class Main extends React.Component  {
+        //     const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+        //     render()
+            
+        //         return (
+        //             <div className="todo-list">
+        //                 {todoItems}
+        //             </div>
+        //         );
+        // }
+
+     ---p4---
+    //     class App extends React.Component {
+    //     constructor() {
+    //         super()
+    //         this.state = {
+    //             todos: todosData
+    //         }
+    //     }
+        
+    //     render() {
+    //         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+            
+    //         return (
+    //             <div className="todo-list">
+    //                 {todoItems}
+    //             </div>
+    //         )    
+    //     }
+    // }
+    //         class Main extends React.Component  {
+    //         const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+    //         render()
+            
+    //             return (
+    //                 <div className="todo-list">
+    //                     {todoItems}
+    //                 </div>
+    //             );
+    //     }
+    ---p5---
+
+    //     class TodoItem extends React.Component (props) {
+    //     return (
+    //         <div className="todo-item">
+    //             <input 
+    //                 type="checkbox" 
+    //                 checked={props.item.completed} 
+    //                 onChange={() => console.log("Changed!")}
+    //             />
+    //             <p>{props.item.text}</p>
+    //         </div>
+    //     )
+    // }
+    ----p6---
+//         class TodoItem extends React.Component(props) {
+//             return (
+//                 <div className="todo-item">
+//                     <input 
+//                         type="checkbox" 
+//                         checked={props.item.completed} 
+//                         onChange={() => props.handleChange(props.item.id)}
+//                     />
+//                     <p>{props.item.text}</p>
+//                 </div>
+//             )
+//         }
+//         class App extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             todos: todosData
+//         }
+//         this.handleChange = this.handleChange.bind(this)
+//     }
+    
+//     handleChange(id) {
+//         this.setState(prevState => {
+//             const updatedTodos = prevState.todos.map(todo => {
+//                 if (todo.id === id) {
+//                     todo.completed = !todo.completed
+//                 }
+//                 return todo
+//             })
+//             return {
+//                 todos: updatedTodos
+//             }
+//         })
+//     }
+    
+//     render() {
+//         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+        
+//         return (
+//             <div className="todo-list">
+//                 {todoItems}
+//             </div>
+//         )    
+//     }
+// }
+
+---p7---
+// class TodoItem extends React.Component(props) {
+//     const completedStyle = {
+//         fontStyle: "italic",
+//         color: "#cdcdcd",
+//         textDecoration: "line-through"
+//     }
+    
+//     return (
+//         <div className="todo-item">
+//             <input 
+//                 type="checkbox" 
+//                 checked={props.item.completed} 
+//                 onChange={() => props.handleChange(props.item.id)}
+//             />
+//             <p style={props.item.completed ? completedStyle: null}>{props.item.text}</p>
+//         </div>
+//     )
+// }
+
+
+        ReactDOM.render(<Main />, document.getElementById('root'));
+    </script>
+</body>
+</html>
